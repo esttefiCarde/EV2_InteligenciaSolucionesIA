@@ -186,7 +186,7 @@ Opcional: un token de GitHub con acceso a **GitHub Models**.
 git clone https://github.com/Yannnella/asistente_estudiantes_duoc.git
 cd asistente_estudiantes_duoc
 python -m venv venv
-venv\Scripts\Activate.ps1          # si falla: Set-ExecutionPolicy -Scope Process Bypass
+venv\Scripts\Activate         # si falla: Set-ExecutionPolicy -Scope Process Bypass
 pip install -r requirements.txt
 copy .env.example .env             # y escribe tu GITHUB_TOKEN en .env
 python -m src.ingest --reset       # indexa los documentos (primera vez o al cambiarlos)
