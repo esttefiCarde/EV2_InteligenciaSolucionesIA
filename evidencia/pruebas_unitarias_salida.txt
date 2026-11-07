@@ -1,0 +1,28 @@
+PASS test_guardrails::test_caso_excepcional_combina_factores
+PASS test_guardrails::test_caso_sensible
+PASS test_guardrails::test_detecta_y_enmascara_rut
+PASS test_guardrails::test_inyeccion
+PASS test_guardrails::test_requiere_carrera
+PASS test_guardrails::test_rut_sin_puntos_y_con_k
+PASS test_guardrails::test_sin_datos_sensibles
+PASS test_pipeline::test_baja_relevancia_deriva
+PASS test_pipeline::test_caso_excepcional_deriva_sin_llamar_a_especialista
+PASS test_pipeline::test_con_carrera_responde
+PASS test_pipeline::test_error_del_llm_se_deriva
+PASS test_pipeline::test_inyeccion_bloqueada
+PASS test_pipeline::test_pide_carrera_en_tema_variable
+PASS test_pipeline::test_reruteo_si_el_area_no_tiene_evidencia
+PASS test_pipeline::test_respuesta_con_fuente
+PASS test_pipeline::test_rut_nunca_llega_al_llm
+PASS test_pipeline::test_saludo
+PASS test_pipeline::test_sin_citas_del_llm_se_informan_fuentes_recuperadas
+PASS test_pipeline::test_sin_informacion_deriva
+PASS test_router::test_baja_confianza_llm_usa_regla_fuerte
+PASS test_router::test_clasificar_respaldo_si_llm_falla
+PASS test_router::test_clasificar_usa_llm
+PASS test_router::test_parsear_area_invalida
+PASS test_router::test_parsear_json_con_texto_extra
+PASS test_router::test_reglas_clasifica_areas
+PASS test_router::test_reglas_sin_coincidencia_es_otro
+
+26 passed, 0 failed

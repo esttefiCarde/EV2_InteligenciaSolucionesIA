@@ -1,0 +1,23 @@
+[
+  {"doc_id": "reglamento_academico_sim", "archivo": "internos/reglamento_academico_simulado.md",
+   "fuente": "Reglamento Académico (simulado)", "area": "academico", "origen": "interno",
+   "version": "2026.1", "url": ""},
+  {"doc_id": "practica_sim", "archivo": "internos/practica_profesional_simulado.md",
+   "fuente": "Manual de Práctica Profesional (simulado)", "area": "practica_titulacion", "origen": "interno",
+   "version": "2026.1", "url": ""},
+  {"doc_id": "titulacion_sim", "archivo": "internos/titulacion_simulado.md",
+   "fuente": "Guía de Titulación (simulada)", "area": "practica_titulacion", "origen": "interno",
+   "version": "2026.1", "url": ""},
+  {"doc_id": "tramites_sim", "archivo": "internos/tramites_certificados_simulado.md",
+   "fuente": "Guía de Trámites y Certificados (simulada)", "area": "administrativo", "origen": "interno",
+   "version": "2026.1", "url": ""},
+  {"doc_id": "soporte_sim", "archivo": "internos/soporte_plataformas_simulado.md",
+   "fuente": "Manual de Soporte de Plataformas (simulado)", "area": "ti", "origen": "interno",
+   "version": "2026.1", "url": ""},
+  {"doc_id": "reglamento_publico", "archivo": "externos/reglamento_academico_publico_resumen.md",
+   "fuente": "Reglamento Académico Duoc UC (público)", "area": "academico", "origen": "externo",
+   "version": "2025", "url": "https://www.duoc.cl/reglamento-academico/"},
+  {"doc_id": "ley_19628", "archivo": "externos/ley_19628_resumen_equipo.md",
+   "fuente": "Ley N° 19.628 (BCN)", "area": "administrativo", "origen": "externo",
+   "version": "vigente", "url": "https://www.bcn.cl/leychile/navegar?idNorma=141599"}
+]

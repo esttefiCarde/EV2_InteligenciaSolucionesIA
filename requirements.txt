@@ -1,0 +1,23 @@
+# Orquestación / RAG
+langchain-core>=0.3
+langchain-openai>=0.3
+langchain-community>=0.3
+langchain-text-splitters>=0.3
+langchain-huggingface>=0.1
+langchain-chroma>=0.2
+chromadb>=0.5
+sentence-transformers>=3.0
+# Agente (EP2): AgentExecutor, create_tool_calling_agent y memorias de LangChain vistas en clase
+langchain-classic>=1.0
+pydantic>=2.7
+# Carga de documentos
+pypdf>=4.0
+requests>=2.31
+beautifulsoup4>=4.12
+# Interfaz y utilidades
+streamlit>=1.35
+python-dotenv>=1.0
+# Pruebas
+pytest>=8.0
+# Solo para regenerar los diagramas de docs/
+matplotlib>=3.8

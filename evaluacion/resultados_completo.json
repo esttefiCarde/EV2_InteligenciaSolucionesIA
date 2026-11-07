@@ -1,0 +1,253 @@
+{
+  "modo": "completo",
+  "n": 22,
+  "precision_enrutamiento": 1.0,
+  "acierto_derivacion": 0.773,
+  "acierto_recuperacion": 0.706,
+  "tasa_citas": 1.0,
+  "latencia_media_ms": 67,
+  "detalle": [
+    {
+      "id": 1,
+      "area_real": "practica_titulacion",
+      "area_esperada": "practica_titulacion",
+      "ok_area": true,
+      "ok_derivacion": false,
+      "ok_doc": false,
+      "con_cita": null,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 2,
+      "area_real": "practica_titulacion",
+      "area_esperada": "practica_titulacion",
+      "ok_area": true,
+      "ok_derivacion": false,
+      "ok_doc": false,
+      "con_cita": null,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 3,
+      "area_real": "academico",
+      "area_esperada": "academico",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": true,
+      "con_cita": true,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 4,
+      "area_real": "academico",
+      "area_esperada": "academico",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": true,
+      "con_cita": true,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 5,
+      "area_real": "academico",
+      "area_esperada": "academico",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": true,
+      "con_cita": true,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 6,
+      "area_real": "academico",
+      "area_esperada": "academico",
+      "ok_area": true,
+      "ok_derivacion": false,
+      "ok_doc": true,
+      "con_cita": true,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 7,
+      "area_real": "administrativo",
+      "area_esperada": "administrativo",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": true,
+      "con_cita": true,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 8,
+      "area_real": "administrativo",
+      "area_esperada": "administrativo",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": true,
+      "con_cita": true,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 9,
+      "area_real": "administrativo",
+      "area_esperada": "administrativo",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": true,
+      "con_cita": true,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 10,
+      "area_real": "practica_titulacion",
+      "area_esperada": "practica_titulacion",
+      "ok_area": true,
+      "ok_derivacion": false,
+      "ok_doc": false,
+      "con_cita": null,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 11,
+      "area_real": "practica_titulacion",
+      "area_esperada": "practica_titulacion",
+      "ok_area": true,
+      "ok_derivacion": false,
+      "ok_doc": false,
+      "con_cita": null,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 12,
+      "area_real": "ti",
+      "area_esperada": "ti",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": true,
+      "con_cita": true,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 13,
+      "area_real": "ti",
+      "area_esperada": "ti",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": true,
+      "con_cita": true,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 14,
+      "area_real": "ti",
+      "area_esperada": "ti",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": true,
+      "con_cita": true,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 15,
+      "area_real": "academico",
+      "area_esperada": "academico",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": null,
+      "con_cita": null,
+      "motivo": "caso_excepcional",
+      "reruteado": false
+    },
+    {
+      "id": 16,
+      "area_real": "academico",
+      "area_esperada": "academico",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": null,
+      "con_cita": null,
+      "motivo": "caso_excepcional",
+      "reruteado": false
+    },
+    {
+      "id": 17,
+      "area_real": "administrativo",
+      "area_esperada": "administrativo",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": null,
+      "con_cita": null,
+      "motivo": "baja_relevancia",
+      "reruteado": false
+    },
+    {
+      "id": 18,
+      "area_real": "otro",
+      "area_esperada": "otro",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": null,
+      "con_cita": null,
+      "motivo": "fuera_de_alcance",
+      "reruteado": false
+    },
+    {
+      "id": 19,
+      "area_real": "otro",
+      "area_esperada": "otro",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": null,
+      "con_cita": null,
+      "motivo": "inyeccion",
+      "reruteado": false
+    },
+    {
+      "id": 20,
+      "area_real": "administrativo",
+      "area_esperada": "administrativo",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": true,
+      "con_cita": true,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 21,
+      "area_real": "practica_titulacion",
+      "area_esperada": "practica_titulacion",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": false,
+      "con_cita": null,
+      "motivo": null,
+      "reruteado": false
+    },
+    {
+      "id": 22,
+      "area_real": "ti",
+      "area_esperada": "ti",
+      "ok_area": true,
+      "ok_derivacion": true,
+      "ok_doc": true,
+      "con_cita": true,
+      "motivo": null,
+      "reruteado": false
+    }
+  ]
+}

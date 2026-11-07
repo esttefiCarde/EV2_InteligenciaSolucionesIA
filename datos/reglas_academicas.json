@@ -1,0 +1,26 @@
+{
+  "aviso": "Reglas estructuradas a partir de los documentos simulados de documentos/internos. Si un documento cambia, esta tabla debe actualizarse con él.",
+  "practica": {
+    "fuente": "Manual de Práctica Profesional (simulado) – 2. Requisitos específicos por carrera",
+    "documentos": "carta de presentación de la coordinación, ficha de inscripción, comprobante del seguro y carta de aceptación de la empresa",
+    "fuente_documentos": "Manual de Práctica Profesional (simulado) – 3. Documentos necesarios",
+    "carreras": {
+      "Ingeniería en Informática": {"avance_minimo": 80, "horas": 360, "gestion_individual": true,
+                                     "condicion_extra": "incluye haber aprobado Ingeniería de Software"},
+      "Analista Programador": {"avance_minimo": 75, "horas": 320, "gestion_individual": true},
+      "Ingeniería en Administración": {"avance_minimo": 80, "horas": 400, "gestion_individual": true},
+      "Contabilidad General": {"avance_minimo": 70, "horas": 320, "gestion_individual": true},
+      "Enfermería": {"avance_minimo": null, "horas": null, "gestion_individual": false}
+    }
+  },
+  "asistencia": {
+    "fuente": "Reglamento Académico (simulado) – Art. 5. Asistencia",
+    "minimo_teorica": 60,
+    "minimo_practica": 70
+  },
+  "aprobacion": {
+    "fuente": "Reglamento Académico (simulado) – Art. 4. Escala de notas y aprobación",
+    "nota_minima": 4.0,
+    "nota_maxima": 7.0
+  }
+}

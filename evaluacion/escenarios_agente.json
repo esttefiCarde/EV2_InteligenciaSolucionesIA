@@ -1,0 +1,71 @@
+[
+  {"id": "E01", "nombre": "Práctica en varios turnos: falta la carrera y el avance", "condicion": "faltan datos (pausa y reanuda)",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "Quiero empezar mi práctica, ¿cumplo los requisitos?",
+     "esperado": {"estrategia": "planificada", "esperando": "carrera"}},
+    {"sesion": "a", "mensaje": "Contabilidad General", "esperado": {"esperando": "avance_malla"}},
+    {"sesion": "a", "mensaje": "llevo 72",
+     "esperado": {"esperando": null, "herramientas": ["verificar_requisitos_practica", "consultar_calendario", "guardar_tramite"],
+                  "etapa": "reunir_documentos", "con_fuentes": true}}]},
+  {"id": "E02", "nombre": "No cumple el avance de malla", "condicion": "requisito no cumplido",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "Quiero empezar mi práctica, soy de Ingeniería en Informática y llevo 72% de la malla",
+     "esperado": {"estrategia": "planificada", "replan": true, "etapa": "cumplir_requisitos"}}]},
+  {"id": "E03", "nombre": "Inscripción de práctica cerrada", "condicion": "período cerrado (fecha)",
+   "fecha": "2026-12-05", "turnos": [
+    {"sesion": "a", "mensaje": "Soy de Analista Programador y llevo 80% de la malla. Quiero inscribir mi práctica, prepárame la solicitud",
+     "esperado": {"replan": true, "etapa": "esperar_apertura", "archivos": 0}}]},
+  {"id": "E04", "nombre": "Inscripción abierta con borrador", "condicion": "período abierto",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "Soy de Analista Programador y llevo 80% de la malla. Quiero inscribir mi práctica, prepárame la solicitud",
+     "esperado": {"herramientas": ["redactar_solicitud"], "etapa": "entregar_solicitud", "archivos": 1}}]},
+  {"id": "E05", "nombre": "Carrera sin inscripción individual", "condicion": "regla distinta por carrera",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "Quiero inscribir mi práctica, soy de Enfermería",
+     "esperado": {"replan": true, "etapa": "coordinar_campo_clinico"}}]},
+  {"id": "E06", "nombre": "Asistencia en riesgo", "condicion": "cálculo con riesgo de reprobar",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "En el taller falté a 12 de 30 clases, ¿repruebo por asistencia?",
+     "esperado": {"estrategia": "reactiva", "herramientas": ["calcular_asistencia"], "texto": ["60"]}}]},
+  {"id": "E07", "nombre": "Nota necesaria para aprobar", "condicion": "cálculo",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "Tengo un 3,5 (30%) y un 4,0 (20%), ¿qué nota necesito en lo que queda para aprobar?",
+     "esperado": {"estrategia": "reactiva", "herramientas": ["calcular_nota_necesaria"], "texto": ["4,3"]}}]},
+  {"id": "E08", "nombre": "Pregunta sin respaldo en los documentos", "condicion": "sin evidencia",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "¿Cuál será el valor exacto de la cuota del arancel del próximo año?",
+     "esperado": {"derivado": true, "herramientas": ["registrar_derivacion"]}}]},
+  {"id": "E09", "nombre": "Retomar el trámite en otra sesión", "condicion": "memoria de largo plazo",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "Soy de Contabilidad General, llevo 72% de la malla y quiero empezar mi práctica",
+     "esperado": {"etapa": "reunir_documentos"}},
+    {"sesion": "b", "mensaje": "¿En qué quedé con mi práctica?",
+     "esperado": {"herramientas": ["consultar_mis_tramites"], "texto": ["reunir documentos"]}}]},
+  {"id": "E10", "nombre": "Pregunta de seguimiento", "condicion": "memoria de corto plazo",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "Soy de Ingeniería en Informática. ¿Qué documentos necesito para la práctica?",
+     "esperado": {"estrategia": "reactiva", "con_fuentes": true}},
+    {"sesion": "a", "mensaje": "¿y cuántas horas dura?", "esperado": {"texto": ["360"]}}]},
+  {"id": "E11", "nombre": "Cambio de carrera", "condicion": "dato del perfil cambia",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "Soy de Contabilidad General, llevo 72% de la malla y quiero empezar mi práctica",
+     "esperado": {"etapa": "reunir_documentos"}},
+    {"sesion": "a", "mensaje": "Me cambié a Ingeniería en Informática, ¿cumplo para la práctica con 72% de la malla?",
+     "esperado": {"replan": true, "etapa": "cumplir_requisitos", "decision": "condición cambiante"}}]},
+  {"id": "E12", "nombre": "Caso excepcional", "condicion": "varios factores sensibles",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "Repetí un ramo tres veces y además tuve un problema de salud, ¿qué hago?",
+     "esperado": {"estrategia": "directa", "derivado": true}}]},
+  {"id": "E13", "nombre": "Privacidad del RUT", "condicion": "dato personal en la consulta",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "Mi RUT es 12.345.678-5, ¿dónde pido un certificado de alumno regular?",
+     "esperado": {"derivado": false, "texto": ["privacidad"], "con_fuentes": true}}]},
+  {"id": "E14", "nombre": "Titulación que aún no abre", "condicion": "período próximo",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "Soy de Analista Programador. Quiero iniciar mi titulación, prepárame el borrador",
+     "esperado": {"estrategia": "planificada", "replan": true, "etapa": "esperar_apertura", "archivos": 0}}]},
+  {"id": "E15", "nombre": "Derecho al olvido", "condicion": "borrar la memoria",
+   "fecha": "2026-11-10", "turnos": [
+    {"sesion": "a", "mensaje": "Quiero inscribir mi práctica, soy de Enfermería", "esperado": {"etapa": "coordinar_campo_clinico"}},
+    {"sesion": "a", "mensaje": "Borra mis datos", "esperado": {"estrategia": "directa", "memoria_vacia": true}}]}
+]

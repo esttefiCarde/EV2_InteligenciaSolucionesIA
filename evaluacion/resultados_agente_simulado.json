@@ -1,0 +1,649 @@
+{
+  "modo": "simulado",
+  "fecha_ejecucion": "2026-11-07",
+  "escenarios": 15,
+  "escenarios_ok": 15,
+  "turnos": 21,
+  "turnos_ok": 21,
+  "por_criterio": {
+    "estrategia": "8/8",
+    "herramientas": "6/6",
+    "replan": "5/5",
+    "esperando": "3/3",
+    "derivado": "3/3",
+    "etapa": "10/10",
+    "texto": "5/5",
+    "con_fuentes": "3/3",
+    "archivos": "3/3",
+    "decision": "1/1",
+    "memoria_vacia": "1/1"
+  },
+  "estrategias": {
+    "reactiva": 6,
+    "planificada": 13,
+    "directa": 2
+  },
+  "replanificaciones": 8,
+  "latencia_media_ms": 12,
+  "llamadas_llm_por_turno": 0,
+  "detalle": [
+    {
+      "id": "E01",
+      "nombre": "Práctica en varios turnos: falta la carrera y el avance",
+      "condicion": "faltan datos (pausa y reanuda)",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "Quiero empezar mi práctica, ¿cumplo los requisitos?",
+          "estrategia": "planificada",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "verificar_requisitos_practica"
+          ],
+          "replanes": 0,
+          "esperando": "carrera",
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 193,
+          "respuesta": "Para seguir necesito saber **de qué carrera eres**, porque los requisitos cambian según la carrera. ¿Cuál es tu carrera?",
+          "fuentes": [],
+          "checks": {
+            "estrategia": true,
+            "esperando": true
+          }
+        },
+        {
+          "sesion": "a",
+          "mensaje": "Contabilidad General",
+          "estrategia": "planificada",
+          "metodo_plan": "reanudado",
+          "herramientas": [
+            "verificar_requisitos_practica"
+          ],
+          "replanes": 0,
+          "esperando": "avance_malla",
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 1,
+          "respuesta": "¿Qué **porcentaje de tu malla** llevas aprobado? Lo uso solo para este cálculo y no lo guardo.",
+          "fuentes": [],
+          "checks": {
+            "esperando": true
+          }
+        },
+        {
+          "sesion": "a",
+          "mensaje": "llevo 72",
+          "estrategia": "planificada",
+          "metodo_plan": "reanudado",
+          "herramientas": [
+            "verificar_requisitos_practica",
+            "buscar_normativa",
+            "consultar_calendario",
+            "guardar_tramite"
+          ],
+          "replanes": 0,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 5,
+          "respuesta": "✅ Cumples el avance de malla: llevas 72 % y Contabilidad General exige 70 %. La práctica dura 320 horas. [1]\n\nNecesitas la carta de presentación, la ficha de inscripción, el seguro y la carta de aceptación [2].\n\n🟢 Inscripción de práctica profesional: **abierta** (quedan 17 día(s) para el cierre). Período: 02-11-2026 al 27-11-2026, en la Coordinación de Práctica de tu carrera. Fecha considerada: 10-11-2026. [3]\n\n🗂️ Guardé tu avance en **práctica profesional**: etapa *reunir documentos*. Próximo paso: Reunir los documentos y pedir la carta de presentación a tu coordinación. Puedes retomarlo en otra sesión.",
+          "fuentes": [
+            "[1] Manual de Práctica Profesional (simulado) – 2. Requisitos específicos por carrera",
+            "[2] Manual de Práctica Profesional (simulado) – 3. Documentos necesarios (interno, v2026.1)",
+            "[3] Calendario Académico 2026-2 (simulado)"
+          ],
+          "checks": {
+            "esperando": true,
+            "herramientas": true,
+            "etapa": true,
+            "con_fuentes": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E02",
+      "nombre": "No cumple el avance de malla",
+      "condicion": "requisito no cumplido",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "Quiero empezar mi práctica, soy de Ingeniería en Informática y llevo 72% de la malla",
+          "estrategia": "planificada",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "verificar_requisitos_practica",
+            "buscar_normativa",
+            "guardar_tramite"
+          ],
+          "replanes": 1,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 2,
+          "respuesta": "❌ Todavía no cumples el avance de malla: llevas 72 % y Ingeniería en Informática exige 80 % (incluye haber aprobado Ingeniería de Software); te faltan 8 puntos porcentuales. [1]\n\nNecesitas la carta de presentación, la ficha de inscripción, el seguro y la carta de aceptación [2].\n\n🗂️ Guardé tu avance en **práctica profesional**: etapa *cumplir requisitos*. Próximo paso: Aprobar asignaturas hasta llegar al 80 % de la malla. Puedes retomarlo en otra sesión.",
+          "fuentes": [
+            "[1] Manual de Práctica Profesional (simulado) – 2. Requisitos específicos por carrera",
+            "[2] Manual de Práctica Profesional (simulado) – 3. Documentos necesarios (interno, v2026.1)"
+          ],
+          "checks": {
+            "estrategia": true,
+            "replan": true,
+            "etapa": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E03",
+      "nombre": "Inscripción de práctica cerrada",
+      "condicion": "período cerrado (fecha)",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "Soy de Analista Programador y llevo 80% de la malla. Quiero inscribir mi práctica, prepárame la solicitud",
+          "estrategia": "planificada",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "verificar_requisitos_practica",
+            "buscar_normativa",
+            "consultar_calendario",
+            "guardar_tramite"
+          ],
+          "replanes": 1,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 3,
+          "respuesta": "✅ Cumples el avance de malla: llevas 80 % y Analista Programador exige 75 %. La práctica dura 320 horas. [1]\n\nNecesitas la carta de presentación, la ficha de inscripción, el seguro y la carta de aceptación [2].\n\n🔴 Inscripción de práctica profesional: **cerrada** (ya cerró este semestre). Período: 02-11-2026 al 27-11-2026, en la Coordinación de Práctica de tu carrera. Fecha considerada: 05-12-2026. [3]\n\n🗂️ Guardé tu avance en **práctica profesional**: etapa *esperar apertura*. Próximo paso: El período ya cerró: revisa las fechas del próximo semestre con tu sede. Puedes retomarlo en otra sesión.",
+          "fuentes": [
+            "[1] Manual de Práctica Profesional (simulado) – 2. Requisitos específicos por carrera",
+            "[2] Manual de Práctica Profesional (simulado) – 3. Documentos necesarios (interno, v2026.1)",
+            "[3] Calendario Académico 2026-2 (simulado)"
+          ],
+          "checks": {
+            "replan": true,
+            "etapa": true,
+            "archivos": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E04",
+      "nombre": "Inscripción abierta con borrador",
+      "condicion": "período abierto",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "Soy de Analista Programador y llevo 80% de la malla. Quiero inscribir mi práctica, prepárame la solicitud",
+          "estrategia": "planificada",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "verificar_requisitos_practica",
+            "buscar_normativa",
+            "consultar_calendario",
+            "redactar_solicitud",
+            "guardar_tramite"
+          ],
+          "replanes": 0,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 4,
+          "respuesta": "✅ Cumples el avance de malla: llevas 80 % y Analista Programador exige 75 %. La práctica dura 320 horas. [1]\n\nNecesitas la carta de presentación, la ficha de inscripción, el seguro y la carta de aceptación [2].\n\n🟢 Inscripción de práctica profesional: **abierta** (quedan 17 día(s) para el cierre). Período: 02-11-2026 al 27-11-2026, en la Coordinación de Práctica de tu carrera. Fecha considerada: 10-11-2026. [3]\n\n📝 Preparé un borrador de **solicitud de inscripción de práctica profesional** (`inscripcion_practica_20261110.md`). Complétalo con tus datos personales antes de entregarlo.\n\n🗂️ Guardé tu avance en **práctica profesional**: etapa *entregar solicitud*. Próximo paso: Completar el borrador con tus datos y entregarlo a la coordinación. Puedes retomarlo en otra sesión.",
+          "fuentes": [
+            "[1] Manual de Práctica Profesional (simulado) – 2. Requisitos específicos por carrera",
+            "[2] Manual de Práctica Profesional (simulado) – 3. Documentos necesarios (interno, v2026.1)",
+            "[3] Calendario Académico 2026-2 (simulado)"
+          ],
+          "checks": {
+            "herramientas": true,
+            "etapa": true,
+            "archivos": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E05",
+      "nombre": "Carrera sin inscripción individual",
+      "condicion": "regla distinta por carrera",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "Quiero inscribir mi práctica, soy de Enfermería",
+          "estrategia": "planificada",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "verificar_requisitos_practica",
+            "guardar_tramite"
+          ],
+          "replanes": 1,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 4,
+          "respuesta": "En Enfermería la práctica se realiza en campos clínicos que asigna la carrera; no se inscribe de forma individual. [1]\n\n🗂️ Guardé tu avance en **práctica profesional**: etapa *coordinar campo clínico*. Próximo paso: Coordinar con tu carrera la asignación del campo clínico. Puedes retomarlo en otra sesión.",
+          "fuentes": [
+            "[1] Manual de Práctica Profesional (simulado) – 2. Requisitos específicos por carrera"
+          ],
+          "checks": {
+            "replan": true,
+            "etapa": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E06",
+      "nombre": "Asistencia en riesgo",
+      "condicion": "cálculo con riesgo de reprobar",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "En el taller falté a 12 de 30 clases, ¿repruebo por asistencia?",
+          "estrategia": "reactiva",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "calcular_asistencia",
+            "buscar_normativa",
+            "buscar_normativa"
+          ],
+          "replanes": 1,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 2,
+          "respuesta": "⚠️ Tu asistencia es 60 %: está bajo el mínimo de 70 % que se exige en talleres y asignaturas prácticas. Con 12 inasistencias superas el máximo permitido (9). [1]\n\nLa asistencia mínima es 60 % en teóricas y 70 % en talleres [1].\n\nDebes cursarla de nuevo; a la tercera reprobación hay causal de eliminación [2].",
+          "fuentes": [
+            "[1] Reglamento Académico (simulado) – Art. 5. Asistencia (interno, v2026.1)",
+            "[2] Reglamento Académico (simulado) – Art. 8. Reprobación de asignaturas (interno, v2026.1)"
+          ],
+          "checks": {
+            "estrategia": true,
+            "herramientas": true,
+            "texto": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E07",
+      "nombre": "Nota necesaria para aprobar",
+      "condicion": "cálculo",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "Tengo un 3,5 (30%) y un 4,0 (20%), ¿qué nota necesito en lo que queda para aprobar?",
+          "estrategia": "reactiva",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "calcular_nota_necesaria",
+            "buscar_normativa"
+          ],
+          "replanes": 0,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 4,
+          "respuesta": "Llevas 1,85 puntos acumulados con el 50 % evaluado. Para aprobar con 4,0 necesitas un promedio de 4,3 en el 50 % restante. [1]\n\nSe aprueba con nota 4,0 [1].",
+          "fuentes": [
+            "[1] Reglamento Académico (simulado) – Art. 4. Escala de notas y aprobación (interno, v2026.1)"
+          ],
+          "checks": {
+            "estrategia": true,
+            "herramientas": true,
+            "texto": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E08",
+      "nombre": "Pregunta sin respaldo en los documentos",
+      "condicion": "sin evidencia",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "¿Cuál será el valor exacto de la cuota del arancel del próximo año?",
+          "estrategia": "reactiva",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "buscar_normativa",
+            "registrar_derivacion"
+          ],
+          "replanes": 1,
+          "esperando": null,
+          "derivado": true,
+          "llamadas_llm": 0,
+          "latencia_ms": 2,
+          "respuesta": "No encontré esta información en los documentos oficiales disponibles.\n\n🎫 Registré tu caso con el código **TCK-5E41E6** para el Punto Estudiantil de tu sede. Una persona lo revisará y puedes preguntarme por él cuando quieras.",
+          "fuentes": [],
+          "checks": {
+            "derivado": true,
+            "herramientas": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E09",
+      "nombre": "Retomar el trámite en otra sesión",
+      "condicion": "memoria de largo plazo",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "Soy de Contabilidad General, llevo 72% de la malla y quiero empezar mi práctica",
+          "estrategia": "planificada",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "verificar_requisitos_practica",
+            "buscar_normativa",
+            "consultar_calendario",
+            "guardar_tramite"
+          ],
+          "replanes": 0,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 3,
+          "respuesta": "✅ Cumples el avance de malla: llevas 72 % y Contabilidad General exige 70 %. La práctica dura 320 horas. [1]\n\nNecesitas la carta de presentación, la ficha de inscripción, el seguro y la carta de aceptación [2].\n\n🟢 Inscripción de práctica profesional: **abierta** (quedan 17 día(s) para el cierre). Período: 02-11-2026 al 27-11-2026, en la Coordinación de Práctica de tu carrera. Fecha considerada: 10-11-2026. [3]\n\n🗂️ Guardé tu avance en **práctica profesional**: etapa *reunir documentos*. Próximo paso: Reunir los documentos y pedir la carta de presentación a tu coordinación. Puedes retomarlo en otra sesión.",
+          "fuentes": [
+            "[1] Manual de Práctica Profesional (simulado) – 2. Requisitos específicos por carrera",
+            "[2] Manual de Práctica Profesional (simulado) – 3. Documentos necesarios (interno, v2026.1)",
+            "[3] Calendario Académico 2026-2 (simulado)"
+          ],
+          "checks": {
+            "etapa": true
+          }
+        },
+        {
+          "sesion": "b",
+          "mensaje": "¿En qué quedé con mi práctica?",
+          "estrategia": "planificada",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "consultar_mis_tramites"
+          ],
+          "replanes": 0,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 0,
+          "respuesta": "Esto es lo que tengo registrado de tus trámites:\n• **Práctica profesional**: etapa *reunir documentos* (actualizado el 2026-11-07). Próximo paso: Reunir los documentos y pedir la carta de presentación a tu coordinación.",
+          "fuentes": [],
+          "checks": {
+            "herramientas": true,
+            "texto": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E10",
+      "nombre": "Pregunta de seguimiento",
+      "condicion": "memoria de corto plazo",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "Soy de Ingeniería en Informática. ¿Qué documentos necesito para la práctica?",
+          "estrategia": "reactiva",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "buscar_normativa"
+          ],
+          "replanes": 0,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 1,
+          "respuesta": "Necesitas la carta de presentación, la ficha de inscripción, el seguro y la carta de aceptación [1].",
+          "fuentes": [
+            "[1] Manual de Práctica Profesional (simulado) – 3. Documentos necesarios (interno, v2026.1)"
+          ],
+          "checks": {
+            "estrategia": true,
+            "con_fuentes": true
+          }
+        },
+        {
+          "sesion": "a",
+          "mensaje": "¿y cuántas horas dura?",
+          "estrategia": "reactiva",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "buscar_normativa"
+          ],
+          "replanes": 0,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 3,
+          "respuesta": "La duración depende de tu carrera: por ejemplo, 360 horas en Ingeniería en Informática [1].",
+          "fuentes": [
+            "[1] Manual de Práctica Profesional (simulado) – 2. Requisitos específicos por carrera (interno, v2026.1)"
+          ],
+          "checks": {
+            "texto": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E11",
+      "nombre": "Cambio de carrera",
+      "condicion": "dato del perfil cambia",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "Soy de Contabilidad General, llevo 72% de la malla y quiero empezar mi práctica",
+          "estrategia": "planificada",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "verificar_requisitos_practica",
+            "buscar_normativa",
+            "consultar_calendario",
+            "guardar_tramite"
+          ],
+          "replanes": 0,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 7,
+          "respuesta": "✅ Cumples el avance de malla: llevas 72 % y Contabilidad General exige 70 %. La práctica dura 320 horas. [1]\n\nNecesitas la carta de presentación, la ficha de inscripción, el seguro y la carta de aceptación [2].\n\n🟢 Inscripción de práctica profesional: **abierta** (quedan 17 día(s) para el cierre). Período: 02-11-2026 al 27-11-2026, en la Coordinación de Práctica de tu carrera. Fecha considerada: 10-11-2026. [3]\n\n🗂️ Guardé tu avance en **práctica profesional**: etapa *reunir documentos*. Próximo paso: Reunir los documentos y pedir la carta de presentación a tu coordinación. Puedes retomarlo en otra sesión.",
+          "fuentes": [
+            "[1] Manual de Práctica Profesional (simulado) – 2. Requisitos específicos por carrera",
+            "[2] Manual de Práctica Profesional (simulado) – 3. Documentos necesarios (interno, v2026.1)",
+            "[3] Calendario Académico 2026-2 (simulado)"
+          ],
+          "checks": {
+            "etapa": true
+          }
+        },
+        {
+          "sesion": "a",
+          "mensaje": "Me cambié a Ingeniería en Informática, ¿cumplo para la práctica con 72% de la malla?",
+          "estrategia": "planificada",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "verificar_requisitos_practica",
+            "buscar_normativa",
+            "guardar_tramite"
+          ],
+          "replanes": 1,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 1,
+          "respuesta": "❌ Todavía no cumples el avance de malla: llevas 72 % y Ingeniería en Informática exige 80 % (incluye haber aprobado Ingeniería de Software); te faltan 8 puntos porcentuales. [1]\n\nNecesitas la carta de presentación, la ficha de inscripción, el seguro y la carta de aceptación [2].\n\n🗂️ Guardé tu avance en **práctica profesional**: etapa *cumplir requisitos*. Próximo paso: Aprobar asignaturas hasta llegar al 80 % de la malla. Puedes retomarlo en otra sesión.",
+          "fuentes": [
+            "[1] Manual de Práctica Profesional (simulado) – 2. Requisitos específicos por carrera",
+            "[2] Manual de Práctica Profesional (simulado) – 3. Documentos necesarios (interno, v2026.1)"
+          ],
+          "checks": {
+            "replan": true,
+            "etapa": true,
+            "decision": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E12",
+      "nombre": "Caso excepcional",
+      "condicion": "varios factores sensibles",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "Repetí un ramo tres veces y además tuve un problema de salud, ¿qué hago?",
+          "estrategia": "directa",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "registrar_derivacion"
+          ],
+          "replanes": 0,
+          "esperando": null,
+          "derivado": true,
+          "llamadas_llm": 0,
+          "latencia_ms": 3,
+          "respuesta": "Tu situación combina varios factores y requiere revisión personalizada.\n\n🎫 Registré tu caso con el código **TCK-DC15A3** para la Coordinación de tu carrera. Una persona lo revisará y puedes preguntarme por él cuando quieras.",
+          "fuentes": [],
+          "checks": {
+            "estrategia": true,
+            "derivado": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E13",
+      "nombre": "Privacidad del RUT",
+      "condicion": "dato personal en la consulta",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "Mi RUT es 12.345.678-5, ¿dónde pido un certificado de alumno regular?",
+          "estrategia": "reactiva",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "buscar_normativa"
+          ],
+          "replanes": 0,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 1,
+          "respuesta": "⚠️ Por tu privacidad, no necesito tu RUT ni datos personales; ya los oculté de tu consulta y no los guardo.\n\nSe pide en la Intranet, menú Trámites > Certificados [1].",
+          "fuentes": [
+            "[1] Guía de Trámites y Certificados (simulada) – 1. Certificado de alumno regular (interno, v2026.1)"
+          ],
+          "checks": {
+            "derivado": true,
+            "texto": true,
+            "con_fuentes": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E14",
+      "nombre": "Titulación que aún no abre",
+      "condicion": "período próximo",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "Soy de Analista Programador. Quiero iniciar mi titulación, prepárame el borrador",
+          "estrategia": "planificada",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "buscar_normativa",
+            "consultar_calendario",
+            "guardar_tramite"
+          ],
+          "replanes": 1,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 1,
+          "respuesta": "Debes presentar el formulario de inscripción y los certificados de práctica y de notas [1].\n\n🟡 Inscripción de titulación: **aún no abre** (abre en 21 día(s)). Período: 01-12-2026 al 11-12-2026, en la Coordinación de Titulación de tu carrera. Fecha considerada: 10-11-2026. [2]\n\n🗂️ Guardé tu avance en **titulación**: etapa *esperar apertura*. Próximo paso: La inscripción abre el 01-12: vuelve a revisarlo ese día. Puedes retomarlo en otra sesión.",
+          "fuentes": [
+            "[1] Guía de Titulación (simulada) – 2. Documentos para iniciar el proceso (interno, v2026.1)",
+            "[2] Calendario Académico 2026-2 (simulado)"
+          ],
+          "checks": {
+            "estrategia": true,
+            "replan": true,
+            "etapa": true,
+            "archivos": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "E15",
+      "nombre": "Derecho al olvido",
+      "condicion": "borrar la memoria",
+      "ok": true,
+      "turnos": [
+        {
+          "sesion": "a",
+          "mensaje": "Quiero inscribir mi práctica, soy de Enfermería",
+          "estrategia": "planificada",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "verificar_requisitos_practica",
+            "guardar_tramite"
+          ],
+          "replanes": 1,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 0,
+          "respuesta": "En Enfermería la práctica se realiza en campos clínicos que asigna la carrera; no se inscribe de forma individual. [1]\n\n🗂️ Guardé tu avance en **práctica profesional**: etapa *coordinar campo clínico*. Próximo paso: Coordinar con tu carrera la asignación del campo clínico. Puedes retomarlo en otra sesión.",
+          "fuentes": [
+            "[1] Manual de Práctica Profesional (simulado) – 2. Requisitos específicos por carrera"
+          ],
+          "checks": {
+            "etapa": true
+          }
+        },
+        {
+          "sesion": "a",
+          "mensaje": "Borra mis datos",
+          "estrategia": "directa",
+          "metodo_plan": "reglas (sin LLM)",
+          "herramientas": [
+            "olvidar_mis_datos"
+          ],
+          "replanes": 0,
+          "esperando": null,
+          "derivado": false,
+          "llamadas_llm": 0,
+          "latencia_ms": 2,
+          "respuesta": "🧹 Listo: borré tu perfil, tus trámites, tus tickets, tus conversaciones y tus borradores. Desde ahora no recuerdo nada de ti.",
+          "fuentes": [],
+          "checks": {
+            "estrategia": true,
+            "memoria_vacia": true
+          }
+        }
+      ]
+    }
+  ]
+}

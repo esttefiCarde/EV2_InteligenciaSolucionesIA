@@ -1,0 +1,36 @@
+{
+  "fuente": "Calendario Académico 2026-2 (simulado)",
+  "aviso": "Fechas inventadas por el equipo con fines de prueba. Cada sede publica su calendario oficial.",
+  "eventos": {
+    "inscripcion_practica": {
+      "nombre": "Inscripción de práctica profesional",
+      "inicio": "2026-11-02",
+      "fin": "2026-11-27",
+      "donde": "la Coordinación de Práctica de tu carrera"
+    },
+    "inscripcion_titulacion": {
+      "nombre": "Inscripción de titulación",
+      "inicio": "2026-12-01",
+      "fin": "2026-12-11",
+      "donde": "la Coordinación de Titulación de tu carrera"
+    },
+    "retiro_asignaturas": {
+      "nombre": "Retiro de asignaturas",
+      "inicio": "2026-08-17",
+      "fin": "2026-10-16",
+      "donde": "el Punto Estudiantil de tu sede"
+    },
+    "suspension_estudios": {
+      "nombre": "Suspensión de estudios",
+      "inicio": "2026-08-17",
+      "fin": "2026-11-27",
+      "donde": "el Punto Estudiantil de tu sede"
+    },
+    "examenes_finales": {
+      "nombre": "Exámenes finales",
+      "inicio": "2026-12-07",
+      "fin": "2026-12-18",
+      "donde": "tu sede"
+    }
+  }
+}

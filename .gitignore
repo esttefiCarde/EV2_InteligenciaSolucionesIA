@@ -1,0 +1,12 @@
+.env
+venv/
+.venv/
+__pycache__/
+*.pyc
+chroma_db/
+logs/*.jsonl
+.pytest_cache/
+# Agente (EP2): memoria de los estudiantes y archivos generados
+memoria/
+salidas/
+.claude/
